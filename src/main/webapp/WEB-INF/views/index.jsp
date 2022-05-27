@@ -17,15 +17,15 @@
         const loginForm = () => {
             location.href = "/member/login";
         }
-        const findAll = () => {
-            location.href = "/member/logout";
+        const pageListForm = () => {
+            location.href = "/member/pagingList";
         }
     </script>
 </head>
 <body>
     <button class="btn btn-outline-success" onclick="saveForm()">회원가입</button>
     <button class="btn btn-outline-success" onclick="loginForm()">로그인</button>
-    <button class="btn btn-outline-success" onclick="findAll()">글목록</button>
+    <button class="btn btn-outline-success" onclick="pageListForm()">글목록</button>
 
 </body>
 </html>

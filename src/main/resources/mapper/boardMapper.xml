@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Board">
+<!--    <insert id=""></insert>-->
+<!--    <select id="findAll" resultType="board">-->
+<!--        select *from boards_table order by id desc-->
+<!--    </select>-->
+<!--    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">-->
+<!--        select * from boards_table order by id desc limit #{start}, #{limit}-->
+<!--    </select>-->
+
+<!--    <select id="count" resultType="int">-->
+<!--        select count(id) from boards_table-->
+<!--    </select>-->
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

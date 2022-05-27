@@ -12,7 +12,7 @@
 <body>
     <header>
         <a href="/">Home</a> &nbsp;
-        <a href="/member/save">회원가입</a> &nbsp;
+        <a href="/member/save-form">회원가입</a> &nbsp;
         <a href="/member/login">로그인</a> &nbsp;
         <a href="/member/findAll">글목록</a>
     </header>
