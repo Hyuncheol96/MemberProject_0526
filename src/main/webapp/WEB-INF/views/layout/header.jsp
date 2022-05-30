@@ -13,8 +13,8 @@
     <header>
         <a href="/">Home</a> &nbsp;
         <a href="/member/save-form">회원가입</a> &nbsp;
-        <a href="/member/login">로그인</a> &nbsp;
-        <a href="/member/findAll">글목록</a>
+        <a href="/member/login-form">로그인</a> &nbsp;
+        <a href="/board/paging">글목록</a>
     </header>
 
 </body>

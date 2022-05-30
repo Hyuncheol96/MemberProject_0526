@@ -1,8 +1,6 @@
 package com.its.member.controller;
 
-import com.its.member.dto.BoardDTO;
 import com.its.member.dto.MemberDTO;
-import com.its.member.dto.PageDTO;
 import com.its.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -32,21 +29,22 @@ public class MemberController {
         }
     }
 
-    @GetMapping("/login")
+    @GetMapping("/login-form")
     public String loginForm() {
-        return "/member/login";
+        return "member/login";
     }
 
     @PostMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session){
+        System.out.println("memberDTO = " + memberDTO + ", model = " + model + ", session = " + session);
         MemberDTO loginMember = memberService.login(memberDTO);
         if(loginMember != null){
             model.addAttribute("loginMember", loginMember);
             session.setAttribute("loginMemberId", loginMember.getMemberId());
             session.setAttribute("loginId", loginMember.getId());
-            return "board/pagingList";
+            return "redirect:/board/paging";
         } else {
-            return "member/login";
+            return "";
         }
     }
     @PostMapping("/duplicate-check")
@@ -57,5 +55,6 @@ public class MemberController {
         String checkResult = memberService.duplicateCheck(memberId);
         return checkResult; // ok.jsp 또는 no.jsp 를 찾음.
     }
+
 
 }

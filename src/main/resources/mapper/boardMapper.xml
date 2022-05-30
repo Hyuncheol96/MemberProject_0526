@@ -4,18 +4,44 @@
 
 
 <mapper namespace="Board">
-<!--    <insert id=""></insert>-->
-<!--    <select id="findAll" resultType="board">-->
-<!--        select *from boards_table order by id desc-->
-<!--    </select>-->
-<!--    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">-->
-<!--        select * from boards_table order by id desc limit #{start}, #{limit}-->
-<!--    </select>-->
 
 <!--    <select id="count" resultType="int">-->
 <!--        select count(id) from boards_table-->
 <!--    </select>-->
 
+    <insert id="saveFile" parameterType="board">
+        insert into boards_table(boardWriter, boardTitle, boardContents, boardCreatedDate, boardFileName)
+        values (#{boardWriter}, #{boardTitle}, #{boardContents}, now(), #{boardFileName})
+    </insert>
+
+    <select id="findAll" resultType="board">
+        select * from boards_table order by id desc
+    </select>
+
+    <select id="updateHits" parameterType="Long">
+        update boards_table set boardHits=boardHits+1 where id=#{id}
+    </select>
+
+    <select id="findById" parameterType="Long" resultType="board">
+        select * from boards_table where id=#{id}
+    </select>
+
+    <update id="update" parameterType="board">
+        update boards_table set boardTitle=#{boardTitle}, boardContents=#{boardContents} where id=#{id}
+    </update>
+
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+        select * from boards_table order by id desc limit #{start}, #{limit}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id) from boards_table
+    </select>
+
+    <select id="search" parameterType="java.util.HashMap" resultType="board">
+        select * from boards_table where ${type}
+                    like concat('%', #{q}, '%') order by id desc;
+    </select>
 
 </mapper>
 

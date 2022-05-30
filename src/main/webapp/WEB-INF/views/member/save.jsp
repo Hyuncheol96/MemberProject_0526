@@ -27,12 +27,13 @@
                 <i id="idIcon-result" class="bi bi-tags-fill"></i>아이디<br><input class="form-control mb-2" type="text" onblur="duplicateCheck()" id="memberId" name="memberId" placeholder="ID를 만들어주세요 띄어쓰기 없이 영/숫자 6-10자"><p id="check-result"></p>
                 <p id="memberId-result"></p>
                 <span id="dup-check-result"></span><br>
-                <i id="pwIcon-result" class="bi bi-tags-fill"></i>비밀번호<br><input class="form-control mb-2" type="text" onblur="memberPassword()" id="memberPw" name="memberPw" placeholder="비밀번호 입력 8-15자의 영문 대소문자, 숫자, 특수문자(-_!#$) 조합">
+                <i id="pwIcon-result" class="bi bi-tags-fill"></i>비밀번호<br><input class="form-control mb-2" type="text" onblur="memberPassword()" id="memberPassword" name="memberPassword" placeholder="비밀번호 입력 8-15자의 영문 대소문자, 숫자, 특수문자(-_!#$) 조합">
                 <p id="memberPassword-result"></p>
                 <i id="pwcIcon-result" class="bi bi-tags-fill"></i>비밀번호 확인<br><input type="password" size="80" id="pwCheck" onblur="memberPwCk()" id="memberPwCk" class="form-control mb-2"  placeholder="위의 비밀번호를 다시 입력해주세요.">
                 <p id="memberPwCk-result"></p>
                 이름<input class="form-control mb-2" type="text" onblur="memberName()" name="memberName" placeholder="이름">
                 Email<input class="form-control mb-2" type="text" onblur="memberEmail()" name="memberEmail" placeholder="이메일">
+                전화번호<input class="form-control mb-2" type="text" onblur="memberMobile()" name="memberMobile" placeholder="이름">
                 <textarea class="form-control mb-2" name="memberProfile" cols="30" rows="10"></textarea>
                 첨부파일: <input type="file" name="memberFile">
                 <input class="btn btn-primary" type="submit" value="가입">
@@ -91,14 +92,14 @@
 
 
         function memberPassword() {
-            const memberPw = document.getElementById("memberPw").value;
+            const memberPw = document.getElementById("memberPassword").value;
             const exp = /^(?=.*[a-z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{8,15}$/;
-            console.log(`memberPw: ${memberPw}`);
+            console.log(`memberPssword: ${memberPassword}`);
             console.log(memberPw.length);
             const pwResult = document.getElementById("memberPassword-result");
             const pwIconResult = document.getElementById("pwIcon-result");
 
-            if(memberPw.match(exp)) {
+            if(memberPassword.match(exp)) {
                 pwResult.innerHTML = "사용 가능합니다."
                 pwResult.style.color = "#2183d3";
                 pwIconResult.style.color = "#2183d3";
