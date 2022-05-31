@@ -86,4 +86,7 @@ public class BoardService {
         boardRepository.saveFile(boardDTO);
     }
 
+    public void delete(Long id) {
+        boardRepository.delete(id);
+    }
 }

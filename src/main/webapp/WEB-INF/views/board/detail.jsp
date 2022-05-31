@@ -29,8 +29,11 @@
         <img src="${pageContext.request.contextPath}/upload/${board.boardFileName}"
              alt="" height="100" width="100">
 
-        <button onclick="boardUpdate()">수정</button>
-        <button onclick="boardDelete()">삭제</button>
+        <br><button onclick="boardUpdate()">수정</button>
+<%--        <form action="/board/delete" method="post" name="delete">--%>
+<%--        <button type="submit">삭제</button>--%>
+<%--        </form>--%>
+        <a href="/board/delete?id=${board.id}"role="button">삭제</a>
         <button onclick="paging()">목록</button>
     </div>
 <div class="container mb-5">
@@ -119,11 +122,11 @@
         location.href = "/board/update?id=${board.id}";
     }
 
-    const boardDelete = () => {
-        // 비밀번호 체크를 위한 화면(passwordCheck.jsp)을 출력하고, 비밀번호 입력받아서
-        // 비밀번호 일치하면 삭제처리 후 목록 출력, 일치하지 않으면 alert 띄우고 상세화면으로
-        location.href = "/board/passwordCheck?id=${board.id}";
-    }
+    <%--const boardDelete = () => {--%>
+    <%--    // 비밀번호 체크를 위한 화면(passwordCheck.jsp)을 출력하고, 비밀번호 입력받아서--%>
+    <%--    // 비밀번호 일치하면 삭제처리 후 목록 출력, 일치하지 않으면 alert 띄우고 상세화면으로--%>
+    <%--    location.href = "/board/passwordCheck?id=${board.id}";--%>
+    <%--}--%>
 
     const paging = () => {
         location.href = "/board/paging?page=${page}"; // 직전에 있었던 페이지 값을 컨트롤러로 요청

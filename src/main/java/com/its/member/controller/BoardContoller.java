@@ -26,6 +26,14 @@ public class BoardContoller {
 //        return "board/list";
 //    }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id) {
+        boardService.delete(id);
+        return "redirect:/board/paging";
+    }
+
+
+
     // 글 수정화면 요청
     @GetMapping("/update")
     public String updateForm(@RequestParam("id") Long id, Model model) {
