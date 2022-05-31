@@ -29,16 +29,16 @@
         <img src="${pageContext.request.contextPath}/upload/${board.boardFileName}"
              alt="" height="100" width="100">
 
-        <br><button onclick="boardUpdate()">수정</button>
+        <br><button onclick="boardUpdate()" class="btn btn-primary">수정</button>
         <%-- 삭제처리 --%>
-        <a href="/board/delete?id=${board.id}"role="button">삭제</a>
-        <button onclick="paging()">목록</button>
+        <a href="/board/delete?id=${board.id}"role="button" class="btn btn-primary">삭제</a>
+        <button onclick="paging()" class="btn btn-primary">목록</button>
     </div>
     <div class="container mb-5">
         <div id="comment-write" class="input-group mb-3">
             <div class="form-floating">
-                <input type="text" id="commentWriter" class="form-control" placeholder="작성자">
-                <label for="commentWriter">작성자</label>
+                <input type="text" id="commentWriter" class="form-control" value="${sessionScope.loginMemberId}" readonly>
+<%--                <label for="commentWriter">작성자</label>--%>
             </div>
             <div class="form-floating">
                 <input type="text" id="commentContents" class="form-control" placeholder="내용">
