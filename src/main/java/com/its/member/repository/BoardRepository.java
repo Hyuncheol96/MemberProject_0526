@@ -14,9 +14,9 @@ public class BoardRepository {
     @Autowired
     private SqlSessionTemplate sql;
 
-    public List<BoardDTO> findAll() {
-        return sql.selectList("Board.findAll");
-    }
+//    public List<BoardDTO> findAll() {
+//        return sql.selectList("Board.findAll");
+//    }
 
     public void updateHits(Long id) {
         sql.update("Board.updateHits", id);

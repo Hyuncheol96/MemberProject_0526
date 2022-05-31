@@ -4,6 +4,7 @@ import com.its.member.dto.BoardDTO;
 import com.its.member.dto.CommentDTO;
 import com.its.member.dto.PageDTO;
 import com.its.member.service.BoardService;
+import com.its.member.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,8 @@ import java.util.List;
 public class BoardContoller {
     @Autowired
     private BoardService boardService;
-
+    @Autowired
+    private CommentService commentService;
     // 글목록
 //    @GetMapping("/findAll")
 //    public String findAll(Model model) {
@@ -70,8 +72,8 @@ public class BoardContoller {
         model.addAttribute("board", boardDTO);
         model.addAttribute("page", page);
         // 댓글 목록도 가져가야 함.
-//        List<CommentDTO> commentDTOList = commentService.paging(id);
-//        model.addAttribute("commentList", commentDTOList);
+        List<CommentDTO> commentDTOList = commentService.findAll(id);
+        model.addAttribute("commentList", commentDTOList);
         return "/board/detail";
     }
 

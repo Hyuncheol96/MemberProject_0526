@@ -9,7 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,9 +20,9 @@ public class BoardService {
     private BoardRepository boardRepository;
 
 
-    public List<BoardDTO> findAll() {
-        return boardRepository.findAll();
-    }
+//    public List<BoardDTO> findAll() {
+//        return boardRepository.findAll();
+//    }
 
     public BoardDTO findById(Long id) {
         boardRepository.updateHits(id);

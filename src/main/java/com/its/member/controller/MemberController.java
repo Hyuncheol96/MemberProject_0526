@@ -53,10 +53,16 @@ public class MemberController {
 
     @RequestMapping(value = "/logout-form",method=RequestMethod.GET)
     public String getLogout(HttpSession session) throws Exception{
-
         session.invalidate();
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/mypage",method=RequestMethod.GET)
+    public String getMypage(HttpSession session) throws Exception{
+        session.invalidate();
+        return "member/mypage";
+    }
+
 
 
 

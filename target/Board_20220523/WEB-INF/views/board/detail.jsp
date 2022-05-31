@@ -103,7 +103,6 @@
                 }
                 output += "</table>";
                 document.getElementById('comment-list').innerHTML = output;
-                document.getElementById('commentWriter').value='';
                 document.getElementById('commentContents').value='';
             },
             error: function (result) {

@@ -14,9 +14,9 @@
         values (#{boardWriter}, #{boardTitle}, #{boardContents}, now(), #{boardFileName})
     </insert>
 
-    <select id="findAll" resultType="board">
-        select * from boards_table order by id desc
-    </select>
+<!--    <select id="findAll" resultType="board">-->
+<!--        select * from boards_table order by id desc-->
+<!--    </select>-->
 
     <select id="updateHits" parameterType="Long">
         update boards_table set boardHits=boardHits+1 where id=#{id}
