@@ -34,40 +34,39 @@
         <a href="/board/delete?id=${board.id}"role="button">삭제</a>
         <button onclick="paging()">목록</button>
     </div>
-<div class="container mb-5">
-    <div id="comment-write" class="input-group mb-3">
-        <div class="form-floating">
-            <input type="text" id="commentWriter" class="form-control" placeholder="작성자">
-            <label for="commentWriter">작성자</label>
+    <div class="container mb-5">
+        <div id="comment-write" class="input-group mb-3">
+            <div class="form-floating">
+                <input type="text" id="commentWriter" class="form-control" placeholder="작성자">
+                <label for="commentWriter">작성자</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" id="commentContents" class="form-control" placeholder="내용">
+                <label for="commentContents">내용</label><br>
+            </div>
+            <button id="comment-write-btn" class="btn btn-primary">댓글작성</button>
         </div>
-        <div class="form-floating">
-            <input type="text" id="commentContents" class="form-control" placeholder="내용">
-            <label for="commentContents">내용</label><br>
-    </div>
-        <button id="comment-write-btn" class="btn btn-primary">댓글작성</button>
-</div>
 
-    <div id="comment-list">
-        <table class="table">
-            <tr>
-                <th>댓글번호</th>
-                <th>작성자</th>
-                <th>내용</th>
-                <th>작성시간</th>
-            </tr>
-            <c:forEach items="${commentList}" var="comment">
+        <div id="comment-list">
+            <table class="table">
                 <tr>
-                    <td>${comment.id}</td>
-                    <td>${comment.commentWriter}</td>
-                    <td>${comment.commentContents}</td>
-                    <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${comment.commentCreatedDate}"></fmt:formatDate></td>  <%-- 초 까지만 나옴. --%>
+                    <th>댓글번호</th>
+                    <th>작성자</th>
+                    <th>내용</th>
+                    <th>작성시간</th>
                 </tr>
-            </c:forEach>
-        </table>
+                <c:forEach items="${commentList}" var="comment">
+                    <tr>
+                        <td>${comment.id}</td>
+                        <td>${comment.commentWriter}</td>
+                        <td>${comment.commentContents}</td>
+                        <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${comment.commentCreatedDate}"></fmt:formatDate></td>  <%-- 초 까지만 나옴. --%>
+                    </tr>
+                </c:forEach>
+            </table>
 
+        </div>
     </div>
-</div>
-
 </body>
 <script>
     $("#comment-write-btn").click(function (){

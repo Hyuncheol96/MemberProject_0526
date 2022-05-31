@@ -13,10 +13,11 @@ public class CommentRepository {
     private SqlSessionTemplate sql;
 
     public void save(CommentDTO commentDTO) {
+        System.out.println("commentDTO = " + commentDTO);
         sql.insert("Comment.save", commentDTO);
     }
 
-    public List<CommentDTO> paging(Long boardId) {
-        return sql.selectList("Comment.paging", boardId);
+    public List<CommentDTO> findAll(Long boardId) {
+        return sql.selectList("Comment.findAll", boardId);
     }
 }

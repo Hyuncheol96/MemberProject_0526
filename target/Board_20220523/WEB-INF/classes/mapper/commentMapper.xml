@@ -8,7 +8,7 @@
         insert into comments_table(commentWriter, commentContents, commentCreatedDate, boardId)
             value (#{commentWriter}, #{commentContents}, now(), #{boardId})
     </insert>
-    <select id="paging" parameterType="Long" resultType="comment">
+    <select id="findAll" parameterType="Long" resultType="comment">
         select * from comments_table where boardId=#{boardId} order by id desc
     </select>
 </mapper>

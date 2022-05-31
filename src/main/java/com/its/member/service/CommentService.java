@@ -12,10 +12,12 @@ public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
     public void save(CommentDTO commentDTO) {
+        System.out.println("commentDTO = " + commentDTO);
+        commentRepository.save(commentDTO);
     }
 
-    public List<CommentDTO> paging(Long boardId) {
-        return commentRepository.paging(boardId);
+    public List<CommentDTO> findAll(Long boardId) {
+        return commentRepository.findAll(boardId);
     }
 
 }
