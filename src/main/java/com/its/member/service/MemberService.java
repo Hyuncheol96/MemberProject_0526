@@ -7,6 +7,7 @@ import com.its.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.lang.reflect.Member;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,9 @@ import java.util.Map;
 
 @Service
 public class MemberService {
+
+
+
     @Autowired
     private MemberRepository memberRepository;
     public boolean save(MemberDTO memberDTO) {
@@ -39,6 +43,7 @@ public class MemberService {
             return "no";
         }
     }
+
 
 
 }

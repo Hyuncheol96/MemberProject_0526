@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +20,8 @@ public class MemberController {
 
         return "member/save";
     }
+
+    // 회원가입 처리
     @PostMapping("/save")
     public String save(@ModelAttribute MemberDTO memberDTO) {
         boolean saveResult = memberService.save(memberDTO);
@@ -47,6 +50,9 @@ public class MemberController {
             return "";
         }
     }
+
+
+
     @PostMapping("/duplicate-check")
     public @ResponseBody String duplicateCheck(@RequestParam("memberId") String memberId) {
         System.out.println("memberId = " + memberId);

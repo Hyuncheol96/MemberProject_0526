@@ -40,7 +40,7 @@
             <th></th>
             <th></th>
             <th></th>
-            <th><button class="btn btn-primary" onclick="saveFileForm()">글 작성</button></th>
+            <th><c:if test="${sessionScope.loginMemberId!=null}"><button class="btn btn-primary" onclick="saveFileForm()">글 작성</button></c:if></th>
         </tr>
         <tr>
             <th>글번호</th>

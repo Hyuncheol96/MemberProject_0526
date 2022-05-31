@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,8 @@ public class MemberRepository {
         System.out.println("ddddd");
         return sql.selectOne("Member.login", memberDTO);
     }
+
+
 
     public String duplicateCheck(String memberId) {
         return sql.selectOne("Member.duplicate", memberId);
