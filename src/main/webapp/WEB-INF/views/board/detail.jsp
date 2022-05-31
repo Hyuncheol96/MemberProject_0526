@@ -30,9 +30,7 @@
              alt="" height="100" width="100">
 
         <br><button onclick="boardUpdate()">수정</button>
-<%--        <form action="/board/delete" method="post" name="delete">--%>
-<%--        <button type="submit">삭제</button>--%>
-<%--        </form>--%>
+        <%-- 삭제처리 --%>
         <a href="/board/delete?id=${board.id}"role="button">삭제</a>
         <button onclick="paging()">목록</button>
     </div>
