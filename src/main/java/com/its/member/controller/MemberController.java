@@ -51,6 +51,13 @@ public class MemberController {
         }
     }
 
+    @RequestMapping(value = "/logout-form",method=RequestMethod.GET)
+    public String getLogout(HttpSession session) throws Exception{
+
+        session.invalidate();
+        return "redirect:/";
+    }
+
 
 
     @PostMapping("/duplicate-check")

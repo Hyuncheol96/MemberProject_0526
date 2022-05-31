@@ -40,6 +40,7 @@
             <th></th>
             <th></th>
             <th></th>
+            <%-- 로그인시 글쓰기 작성 버튼 생성 --%>
             <th><c:if test="${sessionScope.loginMemberId!=null}"><button class="btn btn-primary" onclick="saveFileForm()">글 작성</button></c:if></th>
         </tr>
         <tr>

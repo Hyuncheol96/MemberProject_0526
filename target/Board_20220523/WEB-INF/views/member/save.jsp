@@ -34,7 +34,6 @@
                 이름<input class="form-control mb-2" type="text" onblur="memberName()" name="memberName" placeholder="이름">
                 Email<input class="form-control mb-2" type="text" onblur="memberEmail()" name="memberEmail" placeholder="이메일">
                 전화번호<input class="form-control mb-2" type="text" onblur="memberMobile()" name="memberMobile" placeholder="이름">
-                <textarea class="form-control mb-2" name="memberProfile" cols="30" rows="10"></textarea>
                 첨부파일: <input type="file" name="memberFile">
                 <input class="btn btn-primary" type="submit" value="가입">
             </form>
@@ -60,7 +59,7 @@
                     checkResult.innerHTML = "이미 사용중인 아이디 입니다.";
                     checkResult.style.color = "red";
                 }
-                alert("ajax 성공");
+                // alert("ajax 성공");
             },
             error: function () {
                 alert("오타체크");

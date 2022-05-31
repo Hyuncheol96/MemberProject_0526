@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -13,7 +14,15 @@
     <header>
         <a href="/">Home</a> &nbsp;
         <a href="/member/save-form">회원가입</a> &nbsp;
-        <a href="/member/login-form">로그인</a> &nbsp;
+<%--        <a href="/member/login-form">로그인</a>--%>
+        <c:choose>
+            <c:when test="${sessionScope.loginId == null}">
+                <a href="/member/login-form">로그인</a>
+            </c:when>
+            <c:otherwise>
+                <a href="/member/logout-form">로그아웃</a>
+            </c:otherwise>
+        </c:choose>
         <a href="/board/paging">글목록</a>
     </header>
 
