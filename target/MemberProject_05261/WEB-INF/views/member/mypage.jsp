@@ -22,11 +22,11 @@
     <div class="py-5 text-center">
 
         <form action="/member/mypage" method="post" name="updateForm">
-            memberId: <input class="form-control mb-2" type="text" name="memberId" value="${sessionScope.loginMemberId}" readonly>
+            memberId: <input class="form-control mb-2" type="text" name="memberId" value="${sessionScope.loginMemberId}">
             memberPassword: <input class="form-control mb-2" type="text" name="memberPassword" id="pwConfirm" placeholder="비밀번호를 입력하세요">
             memberName: <input class="form-control mb-2" type="text" name="memberName" value="${boardUpdate.memberName}" readonly>
-            memberEmail: <input class="form-control mb-2" type="text" name="memberEmail" value="${boardUpdate.memberPhone}">
-            memberMobile: <input class="form-control mb-2" type="text" name="memberMobile" value="${boardUpdate.memberPhone}">
+            memberEmail: <input class="form-control mb-2" type="text" name="memberEmail" value="${boardUpdate.memberEmail}">
+            memberMobile: <input class="form-control mb-2" type="text" name="memberMobile" value="${boardUpdate.memberMobile}">
             <input class="btn btn-primary" type="button" onclick="update()" value="정보수정"> <%-- 그냥 button을 사용하면 바로 보내버림 --%>
         </form>
     </div>

@@ -19,6 +19,11 @@
             <c:when test="${sessionScope.loginId == null}">
                 <a href="/member/login-form">로그인</a>
             </c:when>
+            <c:when test="${sessionScope.loginMemberId == 'admin'}">
+                <a href="/member/admin-form">관리자페이지</a>
+                <a href="/member/logout-form">로그아웃</a>
+                <a href="/member/mypage">마이페이지</a>
+            </c:when>
             <c:otherwise>
                 <a href="/member/logout-form">로그아웃</a>
                 <a href="/member/mypage">마이페이지</a>

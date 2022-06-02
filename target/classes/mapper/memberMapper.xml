@@ -12,9 +12,24 @@
     <select id="login" parameterType="member" resultType="member">
         select * from members_table where memberId=#{memberId} and memberPassword=#{memberPassword}
     </select>
+
+    <select id="findAll" resultType="member">
+        select * from members_table
+    </select>
+
+    <select id="findById" parameterType="Long" resultType="member">
+        select * from members_table where id=#{id}
+    </select>
+
+    <delete id="delete" parameterType="Long">
+        delete from members_table where id = #{id}
+    </delete>
+
     <select id="duplicate" parameterType="String" resultType="String">
         select memberId from member_table where memberId=#{memberId}
     </select>
+
+
 
 </mapper>
 

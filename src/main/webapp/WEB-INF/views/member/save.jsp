@@ -33,7 +33,7 @@
                 <p id="memberPwCk-result"></p>
                 이름<input class="form-control mb-2" type="text" onblur="memberName()" name="memberName" placeholder="이름">
                 Email<input class="form-control mb-2" type="text" onblur="memberEmail()" name="memberEmail" placeholder="이메일">
-                전화번호<input class="form-control mb-2" type="text" onblur="memberMobile()" name="memberMobile" placeholder="이름">
+                전화번호<input class="form-control mb-2" type="text" onblur="memberMobile()" name="memberMobile" placeholder="전화번호">
                 첨부파일: <input type="file" name="memberFile">
                 <input class="btn btn-primary" type="submit" value="가입">
             </form>

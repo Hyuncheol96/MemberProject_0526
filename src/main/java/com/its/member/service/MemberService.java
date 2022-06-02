@@ -1,17 +1,15 @@
 package com.its.member.service;
 
-import com.its.member.dto.BoardDTO;
+
 import com.its.member.dto.MemberDTO;
-import com.its.member.dto.PageDTO;
+
 import com.its.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
-import java.lang.reflect.Member;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
+
 
 @Service
 public class MemberService {
@@ -35,6 +33,20 @@ public class MemberService {
         return loginMember;
     }
 
+    public List<MemberDTO> findAll() {
+        return memberRepository.findAll();
+    }
+
+    public boolean delete(Long id) {
+        int deleteResult = memberRepository.delete(id);
+        if (deleteResult > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     public String duplicateCheck(String memberId) {
         String checkResult = memberRepository.duplicateCheck(memberId);
         if (checkResult == null) {
@@ -45,7 +57,8 @@ public class MemberService {
     }
 
 
-
-
-
+    public MemberDTO findById(Long id) {
+        return memberRepository.findById(id);
+    }
 }
+
