@@ -27,10 +27,10 @@
                 <i id="idIcon-result" class="bi bi-tags-fill"></i>아이디<br><input class="form-control mb-2" type="text" onblur="duplicateCheck()" id="memberId" name="memberId" placeholder="ID를 만들어주세요 띄어쓰기 없이 영/숫자 6-10자"><p id="check-result"></p>
                 <p id="memberId-result"></p>
                 <span id="dup-check-result"></span><br>
-                <i id="pwIcon-result" class="bi bi-tags-fill"></i>비밀번호<br><input class="form-control mb-2" type="text" onblur="memberPassword()" id="memberPassword" name="memberPassword" placeholder="비밀번호 입력 8-15자의 영문 대소문자, 숫자, 특수문자(-_!#$) 조합">
-                <p id="memberPassword-result"></p>
-                <i id="pwcIcon-result" class="bi bi-tags-fill"></i>비밀번호 확인<br><input type="password" size="80" id="pwCheck" onblur="memberPwCk()" id="memberPwCk" class="form-control mb-2"  placeholder="위의 비밀번호를 다시 입력해주세요.">
-                <p id="memberPwCk-result"></p>
+                <i id="pwIcon-result" class="bi bi-tags-fill"></i>비밀번호<br><input class="form-control mb-2" type="password" onblur="memberPassword1()" id="memberPw1" name="memberPw1" placeholder="비밀번호 입력 8-15자의 영문 대소문자, 숫자, 특수문자(-_!#$) 조합">
+                <p id="memberPw1-result"></p>
+                <i id="pwcIcon-result" class="bi bi-tags-fill"></i>비밀번호 확인<br><input type="password" size="80" onblur="memberPassword2()" id="memberPw2" class="form-control mb-2"  placeholder="위의 비밀번호를 다시 입력해주세요.">
+                <p id="memberPw2-result"></p>
                 이름<input class="form-control mb-2" type="text" onblur="memberName()" name="memberName" placeholder="이름">
                 Email<input class="form-control mb-2" type="text" onblur="memberEmail()" name="memberEmail" placeholder="이메일">
                 전화번호<input class="form-control mb-2" type="text" onblur="memberMobile()" name="memberMobile" placeholder="전화번호">
@@ -90,15 +90,15 @@
     }
 
 
-        function memberPassword() {
-            const memberPw = document.getElementById("memberPassword").value;
+        function memberPassword1() {
+            const memberPw1 = document.getElementById("memberPassword").value;
             const exp = /^(?=.*[a-z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{8,15}$/;
-            console.log(`memberPssword: ${memberPassword}`);
-            console.log(memberPw.length);
-            const pwResult = document.getElementById("memberPassword-result");
+            console.log(`memberPassword: ${memberPassword}`);
+            console.log(memberPw1.length);
+            const pwResult = document.getElementById("memberPw1-result");
             const pwIconResult = document.getElementById("pwIcon-result");
 
-            if(memberPassword.match(exp)) {
+            if(memberPw1.match(exp)) {
                 pwResult.innerHTML = "사용 가능합니다."
                 pwResult.style.color = "#2183d3";
                 pwIconResult.style.color = "#2183d3";
@@ -108,25 +108,25 @@
                 pwIconResult.style.color = "red";
             }
     }
-    function memberPwCk() {
-        const memberPw = document.getElementById("memberPw").value;
-        const memberPwCk = document.getElementById("memberPwCk").value;
+    function memberPassword2() {
+        const memberPw1 = document.getElementById("memberPw1").value;
+        const memberPwCk = document.getElementById("memberPw2").value;
         console.log(`memberPwCk: ${memberPassword}`);
         console.log(memberPwCk.length);
-        const memberPwCkResult = document.getElementById("memberPwCk-result");
+        const pwResult2 = document.getElementById("memberPw2-result");
         const pwcIconResult = document.getElementById("pwcIcon-result")
-        if(memberPwCk.length == 0){
-            memberPwCkResult.innerHTML = "비밀번호가 일치하지않습니다.";
-            memberPwCkResult.style.color = "red";
+        if(pwResult2.length == 0){
+            pwResult2.innerHTML = "비밀번호가 일치하지않습니다.";
+            pwResult2.style.color = "red";
             pwcIconResult.style.color = "red";
-        }else if(memberPw == memberPwCk){
-            memberPwCkResult.innerHTML = "비밀번호가 일치합니다.";
-            memberPwCkResult.style.color = "#2183d3";
+        }else if(memberPassword1 == memberPassword2){
+            pwResult2.innerHTML = "비밀번호가 일치합니다.";
+            pwResult2.style.color = "#2183d3";
             pwcIconResult.style.color = "#2183d3";
 
         }else {
-            memberPwCkResult.innerHTML = "비밀번호가 일치하지않습니다.";
-            memberPwCkResult.style.color = "red";
+            pwResult2.innerHTML = "비밀번호가 일치하지않습니다.";
+            pwResult2.style.color = "red";
             pwcIconResult.style.color="red";
         }
     }
