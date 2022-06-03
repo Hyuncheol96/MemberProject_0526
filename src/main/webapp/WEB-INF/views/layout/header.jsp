@@ -13,11 +13,12 @@
 <body>
     <header>
         <a href="/">Home</a> &nbsp;
-        <a href="/member/save-form">회원가입</a> &nbsp;
+        &nbsp;
 <%--        <a href="/member/login-form">로그인</a>--%>
         <c:choose>
             <c:when test="${sessionScope.loginId == null}">
                 <a href="/member/login-form">로그인</a>
+                <a href="/member/save-form">회원가입</a>
             </c:when>
             <c:when test="${sessionScope.loginMemberId == 'admin'}">
                 <a href="/member/admin-form">관리자페이지</a>

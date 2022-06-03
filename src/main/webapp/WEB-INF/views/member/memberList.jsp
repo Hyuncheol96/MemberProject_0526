@@ -41,6 +41,7 @@
     }
 </style>
 <body>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div id="comment-list">
     <table class="table">
         <tr>

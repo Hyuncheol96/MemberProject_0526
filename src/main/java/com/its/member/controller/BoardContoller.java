@@ -87,7 +87,7 @@ public class BoardContoller {
         PageDTO paging = boardService.paging(page);     // 해당페이지의 하단 글의 번호 호출
         model.addAttribute("boardList", boardList);
         model.addAttribute("paging", paging);
-        return "board/list";
+        return "/board/list";
     }
 
     // 검색처리
@@ -96,7 +96,7 @@ public class BoardContoller {
                          @RequestParam("q") String q, Model model) {
         List<BoardDTO> searchList = boardService.search(searchType, q);
         model.addAttribute("boardList", searchList);
-        return "board/list";
+        return "/board/list";
     }
 
 }
