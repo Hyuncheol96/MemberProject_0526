@@ -17,9 +17,13 @@
             max-width: 500px;
         }
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+<div class="container mt-3"></div> <%-- mt-3 = 자기 기준으로 위를 3만큼 띄움 --%>
     <div class="container">
         <h2 class="display-4 fw-normal">회원가입</h2>
         <div class="py-5 ">
@@ -54,7 +58,11 @@
                     // 사용 가능한 아이디
                     checkResult.innerHTML = "사용가능한 아이디 입니다.";
                     checkResult.style.color = "green";
-                } else {
+                } else if (result == "no") {
+                    checkResult.innerHTML = "아이디를 입력해 주세요.";
+                    checkResult.style.color = "red";
+                }
+                else {
                     // 이미 사용중인 아이디
                     checkResult.innerHTML = "이미 사용중인 아이디 입니다.";
                     checkResult.style.color = "red";
@@ -87,49 +95,51 @@
             memberIdResult.style.color = "red";
             idIconResult.style.color = "red";
         }
+
     }
 
+    <%--    function memberPassword() {--%>
+    <%--        const memberPassword = document.getElementById("memberPassword").value;--%>
+    <%--        const exp = /^(?=.*[a-z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{8,15}$/;--%>
+    <%--        console.log(`memberPassword: ${memberPassword}`);--%>
+    <%--        console.log(memberPassword.length);--%>
+    <%--        const pwResult = document.getElementById("memberPassword-result");--%>
+    <%--        const pwIconResult = document.getElementById("pwIcon-result");--%>
 
-        function memberPassword() {
-            const memberPassword = document.getElementById("memberPassword").value;
-            const exp = /^(?=.*[a-z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{8,15}$/;
-            console.log(`memberPassword: ${memberPassword}`);
-            console.log(memberPassword.length);
-            const pwResult = document.getElementById("memberPassword-result");
-            const pwIconResult = document.getElementById("pwIcon-result");
+    <%--        if(memberPassword.match(exp)) {--%>
+    <%--            pwResult.innerHTML = "사용 가능합니다."--%>
+    <%--            pwResult.style.color = "#2183d3";--%>
+    <%--            pwIconResult.style.color = "#2183d3";--%>
+    <%--        } else {--%>
+    <%--            pwResult.innerHTML = "띄어쓰기 없는 8~15자의 영문 대/소문자, 숫자, 특수문자(-_!#$) 조합으로 입력해주세요.";--%>
+    <%--            pwResult.style.color = "red";--%>
+    <%--            pwIconResult.style.color = "red";--%>
+    <%--        }--%>
+    <%--}--%>
+    <%--function memberPassword2() {--%>
+    <%--    const memberPassword2 = document.getElementById("memberPassword2").value;--%>
+    <%--    const memberPassword = document.getElementById("memberPassword").value;--%>
+    <%--    console.log(`memberPassword2: ${memberPassword}`);--%>
+    <%--    console.log(memberPassword2.length);--%>
+    <%--    const pwResult2 = document.getElementById("memberPassword2-result");--%>
+    <%--    const pwcIconResult = document.getElementById("pwcIcon-result")--%>
+    <%--    if(pwResult2.length == 0){--%>
+    <%--        pwResult2.innerHTML = "비밀번호가 일치하지않습니다.";--%>
+    <%--        pwResult2.style.color = "red";--%>
+    <%--        pwcIconResult.style.color = "red";--%>
+    <%--    }else if(memberPassword == memberPassword2){--%>
+    <%--        pwResult2.innerHTML = "비밀번호가 일치합니다.";--%>
+    <%--        pwResult2.style.color = "#2183d3";--%>
+    <%--        pwcIconResult.style.color = "#2183d3";--%>
 
-            if(memberPassword.match(exp)) {
-                pwResult.innerHTML = "사용 가능합니다."
-                pwResult.style.color = "#2183d3";
-                pwIconResult.style.color = "#2183d3";
-            } else {
-                pwResult.innerHTML = "띄어쓰기 없는 8~15자의 영문 대/소문자, 숫자, 특수문자(-_!#$) 조합으로 입력해주세요.";
-                pwResult.style.color = "red";
-                pwIconResult.style.color = "red";
-            }
-    }
-    function memberPassword2() {
-        const memberPassword2 = document.getElementById("memberPassword2").value;
-        const memberPassword = document.getElementById("memberPassword").value;
-        console.log(`memberPassword2: ${memberPassword}`);
-        console.log(memberPassword2.length);
-        const pwResult2 = document.getElementById("memberPassword2-result");
-        const pwcIconResult = document.getElementById("pwcIcon-result")
-        if(pwResult2.length == 0){
-            pwResult2.innerHTML = "비밀번호가 일치하지않습니다.";
-            pwResult2.style.color = "red";
-            pwcIconResult.style.color = "red";
-        }else if(memberPassword == memberPassword2){
-            pwResult2.innerHTML = "비밀번호가 일치합니다.";
-            pwResult2.style.color = "#2183d3";
-            pwcIconResult.style.color = "#2183d3";
+    <%--    }else {--%>
+    <%--        pwResult2.innerHTML = "비밀번호가 일치하지않습니다.";--%>
+    <%--        pwResult2.style.color = "red";--%>
+    <%--        pwcIconResult.style.color="red";--%>
+    <%--    }--%>
+    <%--}--%>
 
-        }else {
-            pwResult2.innerHTML = "비밀번호가 일치하지않습니다.";
-            pwResult2.style.color = "red";
-            pwcIconResult.style.color="red";
-        }
-    }
+
 </script>
 
 </html>

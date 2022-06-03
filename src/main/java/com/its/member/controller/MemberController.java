@@ -90,7 +90,7 @@ public class MemberController {
         if (updateResult) {
             // 해당 회원의 상세정보
             System.out.println("memberDTO = " + memberDTO);
-            return "redirect:/memberDetail?id=" + memberDTO.getId();
+            return "member/memberDetail";
         } else {
             return "update-fail";
         }

@@ -18,6 +18,10 @@
     세션에 담은 id: ${sessionScope.loginId}<br>
     <a href="/header"> header로 이동</a> <br>
     <button class="btn btn-primary" onclick="location.href='/update-form'">수정</button> <br>
-    <button class="btn btn-primary" onclick="updateForm()">수정(함수호출)</button> <br>
 </body>
+<script>
+    const updateForm = () => {
+        location.href = "/update-form";
+    }
+</script>
 </html>
