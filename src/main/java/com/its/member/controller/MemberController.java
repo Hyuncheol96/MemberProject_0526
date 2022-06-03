@@ -38,11 +38,23 @@ public class MemberController {
         }
     }
 
+    // 아이디 중복 체크
+    @PostMapping("/duplicate-check")
+    public @ResponseBody String duplicateCheck(@RequestParam("memberId") String memberId) {
+        System.out.println("memberId = " + memberId);
+        // memberId를 DB에서 중복값이 있는지 없는지 체크하고
+        // 없으면 ok, 있으면 no 라는 String 값을 리턴받으세요.
+        String checkResult = memberService.duplicateCheck(memberId);
+        return checkResult; // ok.jsp 또는 no.jsp 를 찾음.
+    }
+
+    // 로그인 화면 이동
     @GetMapping("/login-form")
     public String loginForm() {
         return "member/login";
     }
 
+    // 로그인 처리
     @PostMapping("/login")
     public String login(@ModelAttribute MemberDTO memberDTO, Model model, HttpSession session){
         System.out.println("memberDTO = " + memberDTO + ", model = " + model + ", session = " + session);
@@ -57,16 +69,21 @@ public class MemberController {
         }
     }
 
+    // 로그아웃 처리
     @RequestMapping(value = "/logout-form",method=RequestMethod.GET)
     public String getLogout(HttpSession session) throws Exception{
         session.invalidate();
         return "redirect:/";
     }
 
+
+    // 관리자 페이지 화면 이동
     @GetMapping("/admin-form")
     public String memberListForm() {
         return "/member/admin";
     }
+
+    // 회원정보 목록
     @GetMapping("/findAll") // 아래 findAll 안에 Model model = 전체 데이터를 가져가야 하기때문에 사용
     public String findAll(Model model) {
         List<MemberDTO> memberDTOList = memberService.findAll();
@@ -74,6 +91,7 @@ public class MemberController {
         return "member/memberList";
     }
 
+    // 회원정보 수정 화면 이동
     @GetMapping("/update-form")
     public String updateForm(HttpSession session, Model model) {
         // 로그인을 한 상태기 때문에 세션에 id, memberId가 들어있고
@@ -85,6 +103,8 @@ public class MemberController {
         model.addAttribute("updateMember", memberDTO);
         return "member/mypage";
     }
+
+    // 회원정보 수정화면 이동
     @PostMapping("/update")
     public String update(@ModelAttribute MemberDTO memberDTO) {
         System.out.println("memberDTO = " + memberDTO);
@@ -97,6 +117,8 @@ public class MemberController {
             return "update-fail";
         }
     }
+
+    // 회원정보 수정 처리
     @GetMapping("/mypage")
     public String mypageForm() {
         return "member/mypage";
@@ -108,6 +130,7 @@ public class MemberController {
 //        return "/member/mypage";
 //    }
 
+    // 회원정보 수정 완료 화면
     @GetMapping("/detail")
     public String findById(@RequestParam("id") Long id, Model model) {
         System.out.println("id = " + id);
@@ -115,6 +138,8 @@ public class MemberController {
         model.addAttribute("member", memberDTO);
         return "member/memberDetail";
     }
+
+    // 삭제처리
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
         System.out.println("id = " + id);
@@ -127,18 +152,6 @@ public class MemberController {
             return "delete-fail";
         }
     }
-
-
-
-    @PostMapping("/duplicate-check")
-    public @ResponseBody String duplicateCheck(@RequestParam("memberId") String memberId) {
-        System.out.println("memberId = " + memberId);
-        // memberId를 DB에서 중복값이 있는지 없는지 체크하고
-        // 없으면 ok, 있으면 no 라는 String 값을 리턴받으세요.
-        String checkResult = memberService.duplicateCheck(memberId);
-        return checkResult; // ok.jsp 또는 no.jsp 를 찾음.
-    }
-
 
 
 }
