@@ -1,6 +1,7 @@
 package com.its.member.controller;
 
 
+import com.its.member.dto.BoardDTO;
 import com.its.member.dto.MemberDTO;
 import com.its.member.service.MemberService;
 
@@ -71,6 +72,40 @@ public class MemberController {
         return "/member/memberList";
     }
 
+    @GetMapping("/update-form")
+    public String updateForm(HttpSession session, Model model) {
+        // 로그인을 한 상태기 때문에 세션에 id, memberId가 들어있고
+        // 여기서 세션에 있는 id를 가져온다.
+        Long updateId = (Long) session.getAttribute("loginId");   // getAttribute의 리턴타입을 주기위해 강제 형변환(Long)을 시켜줌.
+        System.out.println("updateId = " + updateId);
+        // DB에서 해당 회원의 정보를 가져와서 그 정보를 가지고 update.jsp로 이동
+        MemberDTO memberDTO = memberService.findById(updateId);
+        model.addAttribute("updateMember", memberDTO);
+        return "member/mypage";
+    }
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO) {
+        System.out.println("memberDTO = " + memberDTO);
+        boolean updateResult = memberService.update(memberDTO);
+        if (updateResult) {
+            // 해당 회원의 상세정보
+            System.out.println("memberDTO = " + memberDTO);
+            return "redirect:/memberDetail?id=" + memberDTO.getId();
+        } else {
+            return "update-fail";
+        }
+    }
+    @GetMapping("/mypage")
+    public String mypageForm() {
+        return "/member/mypage";
+    }
+
+//    @RequestMapping(value = "/mypage",method=RequestMethod.GET)
+//    public String getMypage(HttpSession session) throws Exception{
+//        session.invalidate();
+//        return "/member/mypage";
+//    }
+
     @GetMapping("/detail")
     public String findById(@RequestParam("id") Long id, Model model) {
         System.out.println("id = " + id);
@@ -89,13 +124,6 @@ public class MemberController {
         } else {
             return "delete-fail";
         }
-    }
-
-
-    @RequestMapping(value = "/mypage",method=RequestMethod.GET)
-    public String getMypage(HttpSession session) throws Exception{
-        session.invalidate();
-        return "/member/mypage";
     }
 
 

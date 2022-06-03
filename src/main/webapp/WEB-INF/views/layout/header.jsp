@@ -12,6 +12,7 @@
 </head>
 <body>
     <header>
+        <div class="container mt-3"> <%-- mt-3 = 자기 기준으로 위를 3만큼 띄움 --%>
         <a href="/">Home</a> &nbsp;
         &nbsp;
 <%--        <a href="/member/login-form">로그인</a>--%>
@@ -31,7 +32,7 @@
             </c:otherwise>
         </c:choose>
         <a href="/board/paging">글목록</a>
+        </div>
     </header>
-
 </body>
 </html>

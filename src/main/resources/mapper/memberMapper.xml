@@ -21,6 +21,10 @@
         select * from members_table where id=#{id}
     </select>
 
+    <update id="update" parameterType="member">
+        update members_table set memberPassword=#{memberPassword}, memberEmail=#{memberEmail}, memberMobile=#{memberMobile} where id=#{id}
+    </update>
+
     <delete id="delete" parameterType="Long">
         delete from members_table where id = #{id}
     </delete>

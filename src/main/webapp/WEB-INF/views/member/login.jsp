@@ -18,12 +18,12 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
-<div class="container">
+<div class="container mt-3">
     <h2 class="display-4">로그인</h2>
     <div class="py-5 text-center">
         <form action="/member/login" method="post">
             <input class="form-control mb-2" type="text" name="memberId" placeholder="아이디"><br>
-            <input class="form-control mb-2" type="text" name="memberPassword" placeholder="비밀번호"><br>
+            <input class="form-control mb-2" type="password" name="memberPassword" placeholder="비밀번호"><br>
             <input class="btn btn-primary" type="submit" value="로그인">
 
         </form>

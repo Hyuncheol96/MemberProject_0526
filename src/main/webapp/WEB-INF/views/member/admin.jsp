@@ -15,7 +15,9 @@
 
 </head>
 <body>
+
 <a href="/member/findAll">회원목록</a> <br>
+<a href="/board/paging">글목록</a>
 
 </body>
 </html>

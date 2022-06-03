@@ -60,5 +60,14 @@ public class MemberService {
     public MemberDTO findById(Long id) {
         return memberRepository.findById(id);
     }
+
+    public boolean update(MemberDTO memberDTO) {
+        int updateResult = memberRepository.update(memberDTO);
+        if (updateResult > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
