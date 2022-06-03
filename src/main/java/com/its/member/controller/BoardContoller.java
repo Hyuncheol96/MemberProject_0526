@@ -74,7 +74,7 @@ public class BoardContoller {
         // 댓글 목록도 가져가야 함.
         List<CommentDTO> commentDTOList = commentService.findAll(id);
         model.addAttribute("commentList", commentDTOList);
-        return "/board/detail";
+        return "board/detail";
     }
 
     // 페이징 처리
@@ -87,7 +87,7 @@ public class BoardContoller {
         PageDTO paging = boardService.paging(page);     // 해당페이지의 하단 글의 번호 호출
         model.addAttribute("boardList", boardList);
         model.addAttribute("paging", paging);
-        return "/board/list";
+        return "board/list";
     }
 
     // 검색처리
@@ -96,7 +96,7 @@ public class BoardContoller {
                          @RequestParam("q") String q, Model model) {
         List<BoardDTO> searchList = boardService.search(searchType, q);
         model.addAttribute("boardList", searchList);
-        return "/board/list";
+        return "board/list";
     }
 
 }

@@ -19,6 +19,8 @@ import java.util.List;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    // 회원가입 화면 이동
     @GetMapping("/save-form")
     public String saveForm() {
 
@@ -30,9 +32,9 @@ public class MemberController {
     public String save(@ModelAttribute MemberDTO memberDTO) {
         boolean saveResult = memberService.save(memberDTO);
         if (saveResult) {
-            return "/member/login";
+            return "member/login";
         } else {
-            return "/member/save-fail";
+            return "member/save-fail";
         }
     }
 
@@ -69,7 +71,7 @@ public class MemberController {
     public String findAll(Model model) {
         List<MemberDTO> memberDTOList = memberService.findAll();
         model.addAttribute("memberList", memberDTOList);
-        return "/member/memberList";
+        return "member/memberList";
     }
 
     @GetMapping("/update-form")
@@ -97,7 +99,7 @@ public class MemberController {
     }
     @GetMapping("/mypage")
     public String mypageForm() {
-        return "/member/mypage";
+        return "member/mypage";
     }
 
 //    @RequestMapping(value = "/mypage",method=RequestMethod.GET)
@@ -111,7 +113,7 @@ public class MemberController {
         System.out.println("id = " + id);
         MemberDTO memberDTO = memberService.findById(id);
         model.addAttribute("member", memberDTO);
-        return "/member/memberDetail";
+        return "member/memberDetail";
     }
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
