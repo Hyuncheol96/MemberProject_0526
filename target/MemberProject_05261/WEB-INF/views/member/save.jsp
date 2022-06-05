@@ -58,11 +58,7 @@
                     // 사용 가능한 아이디
                     checkResult.innerHTML = "사용가능한 아이디 입니다.";
                     checkResult.style.color = "green";
-                } else if (result == "no") {
-                    checkResult.innerHTML = "아이디를 입력해 주세요.";
-                    checkResult.style.color = "red";
-                }
-                else {
+                } else {
                     // 이미 사용중인 아이디
                     checkResult.innerHTML = "이미 사용중인 아이디 입니다.";
                     checkResult.style.color = "red";
