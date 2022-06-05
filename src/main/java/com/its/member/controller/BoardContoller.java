@@ -28,6 +28,7 @@ public class BoardContoller {
 //        return "board/list";
 //    }
 
+    // 삭제처리
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id) {
         boardService.delete(id);
@@ -64,6 +65,7 @@ public class BoardContoller {
         return "redirect:/board/paging";
     }
 
+    // 글 상세조회
     @GetMapping("/detail")
     public String findById(@RequestParam("id") Long id, Model model,
                            @RequestParam(value="page", required = false, defaultValue = "1") int page) {

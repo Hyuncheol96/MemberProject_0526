@@ -13,11 +13,10 @@
 <body>
     <header>
         <div class="container mt-3"> <%-- mt-3 = 자기 기준으로 위를 3만큼 띄움 --%>
-        <a href="/">Home</a> &nbsp;
-        &nbsp;
 <%--        <a href="/member/login-form">로그인</a>--%>
         <c:choose>
             <c:when test="${sessionScope.loginId == null}">
+                <a href="/">Home</a>
                 <a href="/member/login-form">로그인</a>
                 <a href="/member/save-form">회원가입</a>
             </c:when>

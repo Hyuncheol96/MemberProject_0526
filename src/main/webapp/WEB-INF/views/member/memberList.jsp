@@ -32,13 +32,13 @@
     #search {
         border: 1px solid lightgray;
     }
-    .container {
-        display: flex;
-        justify-content: center;
-    }
-    .memberCenter {
-        text-align: center;
-    }
+    /*.container {*/
+    /*    display: flex;*/
+    /*    justify-content: center;*/
+    /*}*/
+    /*.memberCenter {*/
+    /*    text-align: center;*/
+    /*}*/
 </style>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
@@ -60,6 +60,7 @@
                 <td>${member.memberName}</td>
                 <td>${member.memberEmail}</td>
                 <td>${member.memberMobile}</td>
+
                 <td><a href="/member/delete?id=${member.id}">삭제</a></td>
                     <%--                <td><a href="/delete?id=${member.id}">삭제</a></td>--%>
             </tr>
