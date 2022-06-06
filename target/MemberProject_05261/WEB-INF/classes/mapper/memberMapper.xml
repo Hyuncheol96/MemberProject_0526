@@ -22,7 +22,7 @@
     </select>
 
     <update id="update" parameterType="member">
-        update members_table set memberEmail=#{memberEmail}, memberMobile=#{memberMobile} where id=#{id}
+        update members_table set memberPassword=#{memberPassword}, memberEmail=#{memberEmail}, memberMobile=#{memberMobile} where id=#{id}
     </update>
 
     <delete id="delete" parameterType="Long">

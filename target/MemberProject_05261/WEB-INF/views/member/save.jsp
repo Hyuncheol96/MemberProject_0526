@@ -31,9 +31,9 @@
                 <i id="idIcon-result" class="bi bi-tags-fill"></i>아이디<br><input class="form-control mb-2" type="text" onblur="duplicateCheck()" id="memberId" name="memberId" placeholder="ID를 만들어주세요 띄어쓰기 없이 영/숫자 6-10자"><p id="check-result"></p>
                 <p id="memberId-result"></p>
                 <span id="dup-check-result"></span><br>
-                <i id="pwIcon-result" class="bi bi-tags-fill"></i>비밀번호<br><input class="form-control mb-2" type="password" onblur="memberPassword()" id="memberPassword" name="memberPassword" placeholder="비밀번호 입력 8-15자의 영문 대소문자, 숫자, 특수문자(-_!#$) 조합">
+                <i id="pwIcon-result" class="bi bi-tags-fill"></i>비밀번호<br><input class="form-control mb-2" type="password" onblur="membersPassword()" id="memberPassword" name="memberPassword" placeholder="비밀번호 입력 8-15자의 영문 대소문자, 숫자, 특수문자(-_!#$) 조합">
                 <p id="memberPassword-result"></p>
-                <i id="pwcIcon-result" class="bi bi-tags-fill"></i>비밀번호 확인<br><input class="form-control mb-2" type="password" size="80" onblur="memberPassword2()" id="memberPassword2" name="memberPassword2"  placeholder="위의 비밀번호를 다시 입력해주세요.">
+                <i id="pwcIcon-result" class="bi bi-tags-fill"></i>비밀번호 확인<br><input class="form-control mb-2" type="password" size="80" onblur="membersPassword2()" id="memberPassword2" name="memberPassword2"  placeholder="위의 비밀번호를 다시 입력해주세요.">
                 <p id="memberPassword2-result"></p>
                 이름<input class="form-control mb-2" type="text" onblur="memberName()" name="memberName" placeholder="이름">
                 Email<input class="form-control mb-2" type="text" onblur="memberEmail()" name="memberEmail" placeholder="이메일">
@@ -73,26 +73,68 @@
     }
 </script>
 <script>
-    function duplicateCheck() {
-        console.log("함수호출됨");
-        const memberId = document.getElementById("memberId").value;
-        const exp = /^[a-z\d]{6,10}$/;
-        console.log(`memberId: ${memberId}`);
-        console.log(memberId.length);
-        const memberIdResult = document.getElementById("memberId-result");
-        const idIconResult = document.getElementById("idIcon-result");
+    <%--function duplicateCheck() {--%>
+    <%--    console.log("함수호출됨");--%>
+    <%--    const memberId = document.getElementById("memberId").value;--%>
+    <%--    const exp = /^[a-z\d]{6,10}$/;--%>
+    <%--    console.log(`memberId: ${memberId}`);--%>
+    <%--    console.log(memberId.length);--%>
+    <%--    const memberIdResult = document.getElementById("memberId-result");--%>
+    <%--    const idIconResult = document.getElementById("idIcon-result");--%>
 
-        if(memberId.match(exp)) {
-            memberIdResult.innerHTML = "사용 가능합니다."
-            memberIdResult.style.color = "#2183d3";
-            idIconResult.style.color = "#2183d3";
-        } else {
-            memberIdResult.innerHTML = "영/숫자 6-10자 조합으로 입력해주세요.";
-            memberIdResult.style.color = "red";
-            idIconResult.style.color = "red";
-        }
+    <%--    if(memberId.match(exp)) {--%>
+    <%--        memberIdResult.innerHTML = "사용 가능합니다."--%>
+    <%--        memberIdResult.style.color = "#2183d3";--%>
+    <%--        idIconResult.style.color = "#2183d3";--%>
+    <%--    } else {--%>
+    <%--        memberIdResult.innerHTML = "영/숫자 6-10자 조합으로 입력해주세요.";--%>
+    <%--        memberIdResult.style.color = "red";--%>
+    <%--        idIconResult.style.color = "red";--%>
+    <%--    }--%>
 
-    }
+    <%--}--%>
+
+    <%--function membersPassword() {--%>
+    <%--    const membersPassword = document.getElementById("memberPassword").value;--%>
+    <%--    const exp = /^(?=.*[a-z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{8,15}$/;--%>
+    <%--    console.log(`memberPassword: ${memberPassword}`);--%>
+    <%--    console.log(membersPassword.length);--%>
+    <%--    const pwResult = document.getElementById("memberPassword-result");--%>
+    <%--    const pwIconResult = document.getElementById("pwIcon-result");--%>
+
+    <%--    if(membersPassword.match(exp)) {--%>
+    <%--        pwResult.innerHTML = "사용 가능합니다."--%>
+    <%--        pwResult.style.color = "#2183d3";--%>
+    <%--        pwIconResult.style.color = "#2183d3";--%>
+    <%--    } else {--%>
+    <%--        pwResult.innerHTML = "띄어쓰기 없는 8~15자의 영문 대/소문자, 숫자, 특수문자(-_!#$) 조합으로 입력해주세요.";--%>
+    <%--        pwResult.style.color = "red";--%>
+    <%--        pwIconResult.style.color = "red";--%>
+    <%--    }--%>
+    <%--}--%>
+
+    <%--function membersPassword2() {--%>
+    <%--    const membersPassword2 = document.getElementById("memberPassword2").value;--%>
+    <%--    const membersPassword = document.getElementById("memberPassword").value;--%>
+    <%--    console.log(`membersPassword2: ${memberPassword}`);--%>
+    <%--    console.log(membersPassword2.length);--%>
+    <%--    const pwcResult = document.getElementById("memberPassword2-result");--%>
+    <%--    const pwcIconResult = document.getElementById("pwcIcon-result")--%>
+    <%--    if(membersPassword2.length == 0){--%>
+    <%--        pwcResult.innerHTML = "비밀번호가 일치하지않습니다.";--%>
+    <%--        pwcResult.style.color = "red";--%>
+    <%--        pwcIconResult.style.color = "red";--%>
+    <%--    }else if(membersPassword == membersPassword2){--%>
+    <%--        pwcResult.innerHTML = "비밀번호가 일치합니다.";--%>
+    <%--        pwcResult.style.color = "#2183d3";--%>
+    <%--        pwcIconResult.style.color = "#2183d3";--%>
+
+    <%--    }else {--%>
+    <%--        pwcResult.innerHTML = "비밀번호가 일치하지않습니다.";--%>
+    <%--        pwcResult.style.color = "red";--%>
+    <%--        pwcIconResult.style.color="red";--%>
+    <%--    }--%>
+    <%--}--%>
 
     <%--    function memberPassword() {--%>
     <%--        const memberPassword = document.getElementById("memberPassword").value;--%>

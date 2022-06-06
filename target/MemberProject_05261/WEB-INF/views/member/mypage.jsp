@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -26,13 +27,12 @@
         <form action="/member/update" method="post" name="updateForm">
             id: <input class="form-control mb-2" type="text" name="id" value="${updateMember.id}" readonly>
             아이디: <input class="form-control mb-2" type="text" name="memberId" value="${sessionScope.loginMemberId}" readonly>
-            비밀번호: <input class="form-control mb-2" type="password" name="memberPassword" id="pwConfirm" placeholder="비밀번호를 입력하세요">
-<%--            비밀번호: <input class="form-control mb-2" type="password" name="memberPassword" value="${updateMember.memberPassword}">--%>
+            현재비밀번호 확인: <input class="form-control mb-2" type="password" name="memberPassword" id="pwConfirm" placeholder="비밀번호를 입력하세요">
             이름: <input class="form-control mb-2" type="text" name="memberName" value="${updateMember.memberName}" readonly>
             Email: <input class="form-control mb-2" type="text" name="memberEmail" value="${updateMember.memberEmail}">
             Mobile: <input class="form-control mb-2" type="text" name="memberMobile" value="${updateMember.memberMobile}">
 <%--            <input class="btn btn-primary" type="submit" value="수정완료">--%>
-            <input class="btn btn-primary" type="button" onclick="update()" value="정보수정"> <%-- 그냥 button을 사용하면 바로 보내버림 --%>
+            <input class="btn btn-primary" type="button" onclick="update()" value="정보수정"> &nbsp; <%-- 그냥 button을 사용하면 바로 보내버림 --%>
         </form>
     </div>
 </div>
