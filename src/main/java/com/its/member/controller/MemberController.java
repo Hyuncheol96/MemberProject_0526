@@ -104,7 +104,7 @@ public class MemberController {
         return "member/mypage";
     }
 
-    // 회원정보 수정화면 이동
+    // 회원정보 수정화면 처리
     @PostMapping("/update")
     public String update(@ModelAttribute MemberDTO memberDTO) {
         System.out.println("memberDTO = " + memberDTO);
